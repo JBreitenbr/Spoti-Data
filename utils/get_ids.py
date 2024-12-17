@@ -3,8 +3,8 @@ import spotipy
 import pandas as pd
 import random
 import math
-client_id="c67da3b55cb84db8a999069f1fcff3bb"
-client_secret="38c93b7d6fdd499691d6c25579e5027a"
+#client_id="c67da3b55cb84db8a999069f1fcff3bb"
+#client_secret="38c93b7d6fdd499691d6c25579e5027a"
 #client_id="12308f6c7b9c4194a6ca9e06f43d3bfd"
 #client_secret="e27a673a043147df8bf4a5d0a9fe8084"
 #client_id = "9c1894e9a4dd49c0a52132423c1bb3fc"
@@ -29,10 +29,10 @@ import warnings
 warnings.filterwarnings("ignore")
 client_credentials_manager = SpotifyClientCredentials(client_id = client_id, client_secret = client_secret)
 sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
-df=pd.read_csv("brock5.csv")
+df=pd.read_csv("kori.csv")
 df=df.reset_index(drop=True)
 #sub=df[450:500]
-sub=df[0:300]
+sub=df
 #del sub["count"]
 def get_track_album_id(id):
     metadata = sp.track(id)
@@ -52,4 +52,4 @@ for track_id in track_ids:
 
 sub['album_id'] = album_ids
 sub['artist_id'] = artist_ids
-sub.to_csv('test_ids_5_1.csv', index=False)
+sub.to_csv('kori_ids.csv', index=False)

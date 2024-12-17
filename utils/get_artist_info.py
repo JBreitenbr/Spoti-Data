@@ -32,7 +32,7 @@ sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
 #df=pd.read_csv("test_ids.csv")
 #df=df.reset_index(drop=True)
 #sub=df[5400:5600]
-sub=pd.DataFrame(pd.read_csv("test_ids_5.csv")["artist_id"].reset_index(drop=True))
+sub=pd.DataFrame(pd.read_csv("kori_ids.csv")["artist_id"].reset_index(drop=True))
 sub.drop_duplicates(inplace=True)
 def get_genres(id):
     metadata = sp.artist(id)
@@ -54,4 +54,4 @@ print(get_genres(artist_ids[0]))
 for artist_id in artist_ids:
   genres.append(get_genres(artist_id))
 sub['genres'] = genres
-sub.to_csv('artist_genres_5.csv', index=False)
+sub.to_csv('kori_genres.csv', index=False)

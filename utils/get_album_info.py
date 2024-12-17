@@ -32,9 +32,8 @@ sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
 #df=pd.read_csv("daten.csv")
 #df=df.reset_index(drop=True)
 #sub=df[450:500]
-sub=pd.read_csv("test_ids_5.csv").reset_index(drop=True)[["album_id"]]
+sub=pd.read_csv("kori_ids.csv").reset_index(drop=True)[["album_id"]]
 sub.drop_duplicates(inplace=True)
-sub=sub[200:len(sub)]
 print(len(sub))
 def to_min_sec(milliseconds):
     seconds = milliseconds // 1000
@@ -91,6 +90,6 @@ sub['album_type'] = album_type
 sub['album_date'] = album_date
 sub['album_tracks'] = album_tracks
 sub['album_pic'] = album_pic
-sub.to_csv('album_info_5_2.csv', index=False)
+sub.to_csv('album_info_kori.csv', index=False)
 
 
