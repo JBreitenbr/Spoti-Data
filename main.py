@@ -3,13 +3,13 @@
 #scrape.scrape(scrape.new)
 #wrangle.wrangle(wrangle.df1,wrangle.df2,wrangle.bij)
 import pandas as pd
-s=pd.read_csv("spotiData2_4.csv")
-del s["artist_id_x"]
-del s["artist_id_y"]
+s=pd.read_csv("spotiData18_4.csv")
+#del s["artist_id_x"]
+#del s["artist_id_y"]
 #print(s.columns)
 #print(s.iloc[987])
 s["alphaname"]=s["alphaname"].astype(str)
-s["artist" ]=s["artist"].astype(str).replace(" ","_")
+#s["artist" ]=s["artist"].astype(str).replace(" ","_")
 #print(type(s.loc[987,"alphaname"]))
 
 for i in range(len(s)):
@@ -33,7 +33,7 @@ for i in range(len(blst)):
 for i in range(len(wlst)):
   wlst[i]["bands"]=slst[i]
 bands=pd.DataFrame(wlst)
-bands.to_json("bandsObj.json",orient="records")
+bands.to_json("bandsArr.json",orient="records")
 
 tracksObj={}
 tracksObj["none"]=[{"artist":"none"}]
@@ -45,4 +45,4 @@ for artist in artists:
   sub=s[s["artist"]==artist]
 
   for j in range(len(sub)):
-    sub.to_json("TracksData/{perf}.json".format(perf=artist),orient="records")
+    sub.to_json("Chansons/{perf}.json".format(perf=artist),orient="records")

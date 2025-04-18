@@ -1,4 +1,4 @@
-entrypoint = "work.py"
+entrypoint = "main.py"
 modules = ["python-3.11"]
 
 [nix]
@@ -11,5 +11,5 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["python3", "work.py"]
+run = ["python3", "main.py"]
 deploymentTarget = "cloudrun"
