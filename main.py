@@ -3,7 +3,7 @@
 #scrape.scrape(scrape.new)
 #wrangle.wrangle(wrangle.df1,wrangle.df2,wrangle.bij)
 import pandas as pd
-s=pd.read_csv("spotiData18_4.csv")
+s=pd.read_csv("sub.csv")
 #del s["artist_id_x"]
 #del s["artist_id_y"]
 #print(s.columns)
@@ -33,7 +33,7 @@ for i in range(len(blst)):
 for i in range(len(wlst)):
   wlst[i]["bands"]=slst[i]
 bands=pd.DataFrame(wlst)
-bands.to_json("bandsArr.json",orient="records")
+bands.to_json("bandsSub.json",orient="records")
 
 tracksObj={}
 tracksObj["none"]=[{"artist":"none"}]
@@ -45,4 +45,4 @@ for artist in artists:
   sub=s[s["artist"]==artist]
 
   for j in range(len(sub)):
-    sub.to_json("Chansons/{perf}.json".format(perf=artist),orient="records")
+    sub.to_json("Canzoni/{perf}.json".format(perf=artist),orient="records")
