@@ -1,5 +1,7 @@
 import pandas as pd
-s=pd.read_csv("sample.csv")
+s=pd.read_csv("spotiData2_4_cl.csv")
+for i in range(len(s)):
+  s.loc[i,"maiuscule"]=s.loc[i,"alphaname"].upper()[0]
 print(s.columns)
 s.sort_values(by="alphaname",inplace=True)
 for i in range(len(s)):
@@ -24,3 +26,14 @@ for i in range(len(wlst)):
   wlst[i]["bands"]=slst[i]
 bands=pd.DataFrame(wlst)
 bands.to_json("bandsObjTest.json",orient="records")
+tracksObj={}
+tracksObj["none"]=[{"artist":"none"}]
+del s["alphaname"]
+artists=s["artist"].unique().tolist()
+for i in range(len(artists)):
+  tracksObj[artists[i]]=[]
+for artist in artists:
+  sub=s[s["artist"]==artist]
+
+  for j in range(len(sub)):
+    sub.to_json("Chansons/{perf}.json".format(perf=artist),orient="records")
