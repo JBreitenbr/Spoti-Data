@@ -33,7 +33,7 @@ for i in range(len(blst)):
 for i in range(len(wlst)):
   wlst[i]["bands"]=slst[i]
 bands=pd.DataFrame(wlst)
-bands.to_json("bandsSub.json",orient="records")
+bands.to_json("bandSubs.json",orient="records")
 
 tracksObj={}
 tracksObj["none"]=[{"artist":"none"}]
@@ -45,4 +45,4 @@ for artist in artists:
   sub=s[s["artist"]==artist]
 
   for j in range(len(sub)):
-    sub.to_json("Canzoni/{perf}.json".format(perf=artist),orient="records")
+    sub.to_json("Songs/{perf}.json".format(perf=artist),orient="records")
