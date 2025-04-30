@@ -1,6 +1,6 @@
 import pandas as pd 
-df0=pd.read_csv("spotiData20_4.csv")
-cnt=pd.read_csv("count.csv")
+df0=pd.read_csv("spotiData30_4.csv")
+cnt=pd.read_csv("counts.csv")
 df=pd.merge(df0,cnt,on="artist")
 print(len(df))
 s=df[df["count"]>10]
