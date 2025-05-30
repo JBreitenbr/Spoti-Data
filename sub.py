@@ -1,5 +1,5 @@
 import pandas as pd 
-df0=pd.read_csv("spotiData30_4.csv")
+df0=pd.read_csv("spotiData30_5.csv")
 cnt=pd.read_csv("counts.csv")
 df=pd.merge(df0,cnt,on="artist")
 print(len(df))
